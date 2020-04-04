@@ -1,0 +1,33 @@
+How to connect winscp
+----------------------------
+
+go to the aws copy
+Public DNS (IPv4)--------------
+ec2-18-223-121-209.us-east-2.compute.amazonaws.com
+
+paste into the--- Host name
+ port should we 22
+
+user name
+-------------
+which machine u using 
+like
+
+ubuntu
+centos
+redhat
+
+
+password
+-----------
+if using aws no need
+if system linux required systwe user --demo
+                         password   ----demo
+Now click on edit
+---------------------
+put name for path
+
+
+
+login
+------

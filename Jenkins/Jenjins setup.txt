@@ -1,0 +1,105 @@
+How to install jenkins
+-------------------------
+step 1-
+--------
+sudo su-
+step 2-
+-------
+cd /opt
+
+step-3 Install Tomcat,jdk
+----------------------------
+install tomcat
+----------------
+root@ip-172-31-39-140:/opt# wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.31/bin/apache-tomcat-9.0.31.tar.gz
+
+Install jdk
+-------------------------
+root@ip-172-31-39-140:/opt# wget https://download.oracle.com/otn/java/jdk/8u241-b07/1f5b5a70bf22433b84d0e960903adac8/jdk-8u241-linux-x64.tar.gz?AuthParam=1584164470_214fcb43ecf4aa69b720bd76e19696e2
+
+
+install jenkins.war file
+-----------------------------------
+root@ip-172-31-39-140:/opt# wget http://ftp-chi.osuosl.org/pub/jenkins/war/2.225/jenkins.war
+
+Extract all files
+-------------------
+root@ip-172-31-39-140:/opt# tar -xzf apache-tomcat-9.0.31.tar.gz
+root@ip-172-31-39-140:/opt# tar -xzf  'jdk-8u241-linux-x64.tar.gz?AuthParam=1584164470_214fcb43ecf4aa69b720bd76e19696e2'
+deploy war file
+---------------------
+root@ip-172-31-39-140:/opt# cp jenkins.war /opt/apache-tomcat-9.0.31/webapps/
+
+
+
+Set all path
+---------------
+cd ~
+ls -a
+vi .profile
+set path
+----------
+                export JAVA_HOME="/opt/jdk1.8.0_241"
+                export  PATH=$JAVA_HOME/bin:$PATH
+
+		export CATALINA_HOME="/opt/apache-tomcat-9.0.31"
+                export  PATH=$CATALINA_HOME/bin:$PATH
+
+                export  M2_HOME="/opt/apache-maven-3.6.3"
+                export  PATH=$M2_HOME/bin:$PATH
+
+                export  ANT_HOME="/opt/apache-ant-1.10.7"
+                export  PATH=$ANT_HOME/bin:$PATH
+
+source .profile
+
+start the Apache tomcat server with the help of command
+---------------------------------------------------------------
+root@ip-172-31-39-140:/opt# startup.sh
+
+copy the public ip of machine in browser
+18.217.110.88:8080/jenkins
+
+To find adminstrative password for jenkins
+-------------------------------------------------
+
+root@ip-172-31-39-140:/opt# cd  /root/.jenkins/secrets/
+root@ip-172-31-39-140:~/.jenkins/secrets#  cat initialAdminPassword
+
+f7e09e9551d94f4896f6c88344722031---------adminpassword for jenkins
+
+========================================================================
+How to create project
+
+set user /password
+
+save now
+
+1- Go to Jenkins New item
+2-Name the project
+3- select free style prioject
+4-click ok
+5-Go to Build
+select-Execute Shell
+
+Now write script
+----------------------
+
+mkdir /tmp/dir1
+mkdir /tmp/dir2
+echo "Hello from jenkins Master" > /tmp/demo.txt
+echo "file created!"
+cp /tmp/demo.txt /tmp/sample.txt
+echo "File Copied!"
+
+
+
+
+
+
+
+
+
+
+
+

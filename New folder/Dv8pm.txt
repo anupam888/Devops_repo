@@ -1,0 +1,32 @@
+
+                                           Linux Servers
+                                          ----------------------
+  Unix Distributions:
+ -----------------------------
+      * Solaris (Sun OS) ,  AIX (IBM ) , HP-UX (HP-Corp) , 
+      * MAC (Apple) ,  System-V (AT&T) , Linux (Linus Torvald)
+      * BSD Unix (Berkeley Software Distibution)....
+
+  Linux Distributions:
+ --------------------------------
+      * Redhat, Centos , Ubuntu , Debian , Fedora , Mint Linux ,  
+      * Amazon LInux , Open Linux , Turbo Linux ,  Slackware
+      * Oracle Enterprise Linux , Berkeley Linux , SuSE , . . . .
+
+  1) VM-Ware
+  2) Virtual Box
+  3) Vagrant 
+  4) Cloud (AWS, Google, Azure, IBM, Rackspace, Oracle cloud....)
+
+
+
+
+
+
+
+
+
+
+
+
+   

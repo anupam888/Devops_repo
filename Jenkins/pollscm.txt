@@ -1,0 +1,35 @@
+
+
+                               Jenkins Build Triggers
+                              ----------------------------------
+    * Build Periodically
+    * Poll SCM
+
+ Build Periodically:
+----------------------------
+                 "crontab"
+
+ Poll SCM :
+----------------
+   74  git clone https://github.com/sathyadevops/ant_proj.git
+   76  cd ant_proj/
+   79  git config --global user.name sathyadevops
+   80  git config --global user.email sathyadevops1@gmail.com
+   83  cat .gitconfig
+
+root@ip-172-31-19-210:~# cd ant_proj/WebContent/WEB-INF/jsp/
+root@ip-172-31-19-210:~/ant_proj/WebContent/WEB-INF/jsp# vi userForm.jsp
+  ..................add new code...................
+
+root@ip-172-31-19-210:~/ant_proj# git add *
+root@ip-172-31-19-210:~/ant_proj# git commit -m "code"
+root@ip-172-31-19-210:~/ant_proj# git push origin master
+
+
+
+
+
+
+
+
+

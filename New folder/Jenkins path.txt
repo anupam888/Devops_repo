@@ -1,0 +1,1 @@
+cp /root/.jenkins/workspace/mvn_package/target/myproj.war /opt/apache-tomcat-9.0.31/webapps/

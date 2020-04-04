@@ -1,0 +1,47 @@
+Build-1:
+------------
+    Jenkins  ---> New Item --->  Free Style project  -->
+    Build  ---> Execute shell 
+touch /tmp/FILE1.TXT
+touch /tmp/FILE2.TXT
+mkdir  /tmp/mydir
+echo "files Created!" > /tmp/devops
+   --> Save  ---> "Build Now"
+Build-2:
+------------
+    New Item  --->  Free Style Project   --> ANT-PROJECT
+ GIT --->  https://github.com/sathyadevops/ant_proj.git
+ Build ---> Invoke Ant 
+ Build  --> Execute Shell
+cp /root/.jenkins/workspace/ANT_PROJECT/dist/AntExample.war
+                /opt/apache-tomcat-9.0.31/webapps
+echo "File Deployed"
+  --> save --> Build Now
+
+
+  Jenkins Build Triggers:
+  -----------------------------------
+    1) Build Periodically
+
+   "crontab" 
+
+
+    2) Poll SCM
+
+
+  186  git clone https://github.com/sathyadevops/ant_proj.git
+  189  cd ant_proj/
+  191  cd WebContent/
+  193  cd WEB-INF/
+  196  cd jsp/
+  198  vi userForm.jsp
+    ...............new code.............
+
+  203  git config --global user.name sathyadevops
+  204  git config --global user.email sathyadevops1@gmail.com
+  205  git add *
+  206  git commit -m "new code"
+  207  git push origin master
+
+cp /root/.jenkins/workspace/MAVEN_PACKAGE/target/myproj.war
+             /opt/apache-tomcat-9.0.31/webapps/

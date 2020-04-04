@@ -1,0 +1,74 @@
+
+
+                #apt-get update
+                #apt-get install git-core 
+                #git --version
+                #git config --global user.name sathyadevops
+                #git config --global user.email sathyadevops1@gmail.com
+
+             # git clone https://github.com/sathyadevops/dev8pm.git
+
+  17  cd dev8pm/
+   19  vi README.md
+  ..................data.................
+
+   20  git status
+   22  git add README.md              <----- to add the code to Stage Area
+   24  git commit -m "Meta Data"   <----- to save code to local repo
+   25  git push origin master           <----- to move code to global repo
+
+   29  vi demo.java
+  ..................java-code................
+   30  git add demo.java
+   31  git commit -m "Java code"
+   32  git push origin master
+
+
+   37  ls -a             <----- to list hidded files
+   38  cd .ssh/      
+
+   41  ssh-keygen     <------ to generate a key-pair
+   44  cat id_rsa.pub   <---- copy a public key
+
+ ---> Github.com  ---> sathyadevops --->  dev8pm.git ---> 
+     Settings  --->  Deploy Keys  ---> Add Deploy key --->   New Key 
+
+ git remote set-url origin git@github.com:sathyadevops/dev8pm.git
+
+   51  vi sample.c
+  ..............c-code..............
+
+   53  git add sample.c
+   54  git commit -m "c-code"
+   55  git push origin master
+
+   # mkdir  Mydir
+   # git  mv  sample.c  Mydir/sample.c
+   # git  commit  -am  "file moved"
+
+   # git  rm  demo.java
+   # git  commit  -am  "file removed"
+
+   # git push origin master
+   
+   # git log
+   # git log  -p
+   # git log  --oneline
+   # git log  --since=19-02-2020  --until=20-02-2020
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+

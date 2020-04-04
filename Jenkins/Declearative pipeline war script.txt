@@ -1,0 +1,36 @@
+https://github.com/sathyadevops/mvnproj.git
+
+
+pipeline {
+    agent any 
+    stages {
+        stage('clone repo') { 
+            steps {
+                sh "rm -rf mvnproj"
+                sh "git clone https://github.com/sathyadevops/mvnproj.git"
+                sh "mvn clean -f mvnproj"
+            }
+        }
+        stage('Compile') { 
+            steps {
+                sh "mvn compile -f mvnproj"
+            }
+        }
+        stage('Test') { 
+            steps {
+                sh "mvn test -f mvnproj"
+            }
+        }
+        stage('package') { 
+            steps {
+                sh "mvn package -f mvnproj"
+            }
+        }
+        stage('Deploy') { 
+            steps {
+                sh "cp /root/.jenkins/workspace/PIPE_LINE1/mvnproj/target/mvnproj.war /opt/"
+                sh "echo File Deployed"
+            }
+        }
+    }
+}

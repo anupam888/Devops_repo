@@ -1,0 +1,135 @@
+Jenkins Maven project
+
+---------------------------
+Manage Jenkins
+==================
+Global Tool Configuration
+==============================
+
+setup 
+============
+		
+JDK
+======
+	Name java1.8
+	Install automatically
+	Version Java SE Development kit 9.0.4
+	Git installations	
+Git
+=========
+ 	Name
+=============	
+           Default
+ 	Path to Git executable
+===============================	
+                       /usr/bin/git
+
+
+Install automatically ----check
+=======================
+
+Maven
+===========
+
+
+ 	Maven installations
+============================	
+Add Maven
+Maven
+===========
+ 	Name -----mvn	
+
+ 	MAVEN_HOME
+========================	
+/opt/apache-maven-3.6.3
+
+
+Install automatically
+
+Plugin Manager
+===============
+add ==== Pipeline Maven Integration Plugin
+         	
+          Build Pipeline Plugin
+          Delivery Pipeline View
+
+
+To make pipeline
+==================
+   1.New Item
+Enter an item name--MAVAN_COMPILE
+
+select FREESTYLE PROJECT---click ok
+=====================================
+
+Go to Git
+=============
+   	Repository URL --https://github.com/sathyadevops/mvnproj.git
+Build
+=====
+Invoke top-level Maven targets---mvn3.6
+                             Gols--complie
+
+
+Post-build Actions
+===================
+Build other project----WRITE--->MVN_PACKAGE
+
+then save
+----------
+Got build
+and build it
+
+
+2.Then Make MAVEN_PACKAGE
+===============================
+Select maven project ----ok
+
+Source Code Management
+================================
+ Git-- https://github.com/sathyadevops/mvnproj.git
+
+Pre Steps
+=============
+Root POM----pom.xml
+
+Goals and options---package
+
+
+
+Post-build Actions
+======================
+
+	Projects to build--- MAVEN_DEPLOY
+click-- save
+
+build it
+
+After build you can check your project if war file created ---http://3.134.103.173:8080/myproj/
+
+MAVEN_DEPLOY
+===============
+Select--- Free style project
+
+Build-- cp /root/.jenkins/workspace/MVN_PACKAGE/target/myproj.war  /opt/apache-tomcat-9.0.31/webapps/
+save and build
+
+
+After this
+============
+
+Go to the + symbol
+Write your Pipeline name ---Jenkins build
+
+	Select Initial Job
+================================
+	MAVEN_COMPILE
+
+click ok
+
+is donr
+
+
+
+
+

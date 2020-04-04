@@ -1,0 +1,38 @@
+sudo su -
+cd /opt/
+
+JDK
+root@ip-172-31-41-219:/opt# wget https://download.oracle.com/otn/java/jdk/8u241-b07/1f5b5a70bf224
+33b84d0e960903adac8/jdk-8u241-linux-x64.tar.gz?AuthParam=1584036327_59538b1faf7b17aeac4daf9d607b0c35
+
+Apacha tomcat
+root@ip-172-31-41-219:/opt# wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.31/bin/apache-                                             
+tomcat-9.0.31.tar.gz
+
+Extract 
+root@ip-172-31-41-219:/opt# tar -xzf apache-tomcat-9.0.31.tar.gz
+root@ip-172-31-41-219:/opt# tar -xzf 'jdkjdk-8u241-linux-x64.tar.gz?AuthParam=1584122034_731a1a9a                                            
+6e0a8196fa7d01c85487798d'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+root@ip-172-31-41-219:~# cd /root/.jenkins/secrets/
+root@ip-172-31-41-219:~/.jenkins/secrets# ls -a
+.                   initialAdminPassword             org.jenkinsci.main.modules.instance_identity.InstanceIdentity.KEY
+..                  jenkins.model.Jenkins.crumbSalt  slave-to-master-security-kill-switch
+filepath-filters.d  master.key                       whitelisted-callables.d
+root@ip-172-31-41-219:~/.jenkins/secrets# cat initialAdminPassword
+44f8ec4510004194ad290cadb74067b9
+
+

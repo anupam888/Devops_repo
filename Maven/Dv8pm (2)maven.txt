@@ -1,0 +1,29 @@
+                            Package Installation
+  
+   for Ubuntu / Debian:
+   ------------------------------
+      # sudo su   -              <------------- to switch as root user
+      # apt-get update
+      # apt-get install  openjdk-8-jdk    -y
+      # apt-get install  tomcat8   -y
+      # apt-get install  ant  -y
+      # apt-get install  maven  -y
+                        [OR]
+      # apt-get install  maven2  -y
+
+      # which java
+      # java -version
+      # ant -version
+      # mvn --version
+
+
+   for Redhat / Centos:
+   -----------------------------
+      # sudo su   -              <------------- to switch as root user
+      # yum  update  -y
+      # yum  install  java   -y
+      # yum  install  tomcat  -y
+      # yum  install  ant  -y
+      # yum  install  maven -y
+
+

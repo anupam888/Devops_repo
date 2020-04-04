@@ -1,0 +1,73 @@
+In aws create three nodes
+-----------------------------
+1 Jenkins (master) install jdk and jenkins
+2 Staging ===install jdk
+3 Production  ===install jdk
+
+Using apt get install jenkins
+------------------------------------
+sudo apt-get update
+
+Install jdk
+----------------
+sudo apt install openjdk-8-jdk
+
+
+
+
+Installation
+--------------------
+wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+sudo apt-get update
+sudo apt-get install jenkins
+
+Upgrade
+--------------------
+Once installed like this, you can update to the later version of Jenkins (when it comes out) by running the following commands:
+
+sudo apt-get update
+
+sudo apt-get install jenkins
+
+To start jenkins
+-----------------------
+sudo systemctl start jenkins
+
+To check status
+-----------------------
+sudo systemctl status jenkins
+
+Go to browser and paste ip of jenkins with :port8080
+------------------------------------------------------------
+http://18.223.121.209:8080/
+
+
+To unlock jenkins
+-----------------------
+
+
+To ensure Jenkins is securely set up by the administrator, a password has been written to the log (not sure where to find it?) and this file on the server:
+paste this in ubuntu
+---------------------------
+
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+
+Please copy the password from either location and paste it below.
+--------------------------------------------------------------------------
+Administrator password
+85d8e4d5bb714825869a5b90ad12379a
+
+opnen jenkins go to global security tool------>>>> agents---click random
+ 
+now go to manage nodes ----click new node----name the node as Staging---click parmanent agent---ok
+
+after this go to 	
+ 	Remote root directory	----set  == /home/ubuntu/jenkins
+then selesct
+---------------
+	
+ 	Launch method	-----	launch agent by connecting by master-----click ok
+ 		
+ 	

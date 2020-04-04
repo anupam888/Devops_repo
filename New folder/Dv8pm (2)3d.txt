@@ -1,0 +1,84 @@
+
+
+                                      Linux Servers 
+				     ----------------------
+Unix Distributions:
+----------------------------
+   *  Solaris (Sun-OS) ,  AIX (IBM)  , HP-UX (HP-Corp) , 
+   *  MAC (Apple) ,  System-V (AT&T) ,  Linux (Linus torvald)
+   *  BSD Unix (Berkeley Software Distribution ) . . .  
+
+Linux Distributions:
+----------------------------
+   *  Redhat,  Ubuntu , Centos ,  Gentoo , Debian,  Slackware,
+   *  Fedora , Mandark ,  Open Linux , Amazon Linux ,  SuSE
+   *  Berkeley Linux ,  Mint Linux  , Oracle Enterprise Linux, . . . 
+
+		     
+       1) VM-WARE
+       2) Virtual Box
+       3) Vagrant
+       4) Cloud (AWS, Google, Azure, IBM, Oracle cloud...)
+
+
+                                     AWS-EC2 Service
+				     -------------------------
+			      * create an AWS account
+    	         	      * select EC2 (Elastic Compute Cloud) 
+    	         	      * select Launch instance
+
+Step 1: Choose an Amazon Machine Image (AMI)
+
+Step 2: Choose an Instance Type
+
+Step 3: Configure Instance Details
+
+Step 4: Add Storage
+
+Step 5: Add Tags
+
+Step 6: Configure Security Group
+
+Step 7: Review Instance Launch
+
+  Key Pair :
+  --------------
+  1) Public Key    -----> Uname
+  2) Private Key   -----> Pwd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,6 @@
+mkdir /tmp/dir1
+mkdir /tmp/dir2
+echo "Hello from jenkins Master" > /tmp/demo.txt
+echo "file created!"
+cp /tmp/demo.txt /tmp/sample.txt
+echo "File Copied!"

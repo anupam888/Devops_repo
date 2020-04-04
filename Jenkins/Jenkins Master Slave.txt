@@ -1,0 +1,323 @@
+ For Slave Which is Redhat
+================================
+whoami
+
+sudo su -
+
+step1. Tochange Root Password in Slave
+============================================
+slave# passwd root
+Enter new password :root
+
+step.2 To configure ssh
+===========================
+slave # vi /etc/ssh/sshd_config
+
+
+Press i
+==============
+PermitRootLogin yes
+PasswordAuthantication yes
+
+press esc
+-----------
+:wq
+-------
+
+step.3 To Restart service
+======================
+
+slave# service ssh restart  (For ubuntu)
+or
+
+systemctl restart sshd (Foe rdehat)
+
+step.4 Connct with nodes
+=============================
+slave# hostname -i (To get ip-adderss)
+Or
+ifconfig
+or
+ip a
+hostname -f  (To get Host Name /FNQDN)
+
+Now go to Master
+======================
+
+Master#  ssh -slave ip-- press enter
+
+
+Please type 'yes' or 'no': yes
+
+root@172.31.28.198's password: root
+
+Now How To Login Without Password
+==============================================
+step.1
+========
+Master ls -a ---To show hidden file
+       cd .ssh/
+       ssh-keygen----Genrate key pair
+ 
+        ls 
+
+authorized_keys
+==================
+  id_rsa ----private key
+  id_rsa.pub ---publickey known_hosts
+
+step.2 To send Public key to slave
+=======================================
+
+
+TO COPY NODE ID --IN MASTER
+===============================
+              slave id
+Master---  ssh-copy-id <172.31.28.198>
+
+ password:root
+
+Then to connct  the slaves
+================
+Master--- ssh < 172.31.28.198>--slve ip
+
+No password required for slave 
+[root@ip-172-31-28-198 ~]#--- This is slave ip in Master
+
+exit
+
+
+
+Jenkins Master and Slave Configuration
+==============================================
+
+In Slave
+===============
+yum update -y
+
+yum install java -y
+
+
+Now in Jenkins
+=====================
+
+Go to ---Manage Jenkins
+then     Mangee Nodes
+
+Manage node
+=================
+New Node ---slave 1
+Permanent Agent--click
+
+then ok
+
+Then
+============
+
+	Description--- to run java builds
+
+ 	Remote root directory---- /opt/jenkins
+        
+        	
+ 	Labels------- node1
+
+         Launch method---- Launsh agents via SSH
+         
+          	Host----- private ip os slave--- 172.31.28.198
+
+
+	Credentials
+=======================
+
+add-- select jenkins
+    Got kind---
+ 1st Method   select Username with password
+=======================================
+ Username ---rooot
+ password --1
+          add
+2nd METHOD select SSH Username with private key
+===================================================
+
+username----root
+ 
+Private Key	
+ Enter directly --click
+
+then add private key
+===============================
+
+then go to jenkins master putty
+=============================
+
+root@ip-172-31-39-46:~/.ssh# cat id_rsa
+                            ================
+
+select private key
+======================
+copy on jenkins credintial private key option
+===============================================
+
+-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEAm9XJVZyv9D9RiHcgYV1TSjqLFW8R39g9IyPtp1q7wh2XSim6
+77Dc+c9gbuaUtNWaC2jLfJ7hm3XO8/urGsvMwEdtcCP+vecZZuoAS7p1Am0gxOuE
+O5z7B1lJ34/zlULUSmZMHr6dPRvQaIQfYmGkqJHjTt8ZUd8xPBLN0iMwh6JN2kkH
+fHGxtIzjeaQsOvBvmJrgOgC3NE/7FhmBmQxIcq91xBsGkbQ+MZxrbNu8XlOkwvT6
+uq11EwuD0TEOLh/toVF6B122tE+Kd3hdg8p8kAXZoDGLaFWx22uCk+r8DnLqjffN
+qF5F5pGyAGHUA2I4NoUhWW0HWnWZ6XkHsbRRCQIDAQABAoIBAGZhuan+jHdq1jVT
+FroBJ4SAG/qUA2lOVzRsGWo3KV4qNMhrzD5Hs5aIUXHrGc4I+/D9A5u3gr+xUato
+MA0l0jqNcvAXJfk8CKtdl54pPVC/w6S8mx7TTvWQCwHPQJhS1MiglugoEYQhbvYL
+v9bSEe0SFAYweyEYAu/V5tVley/QQsXQfleh7IidBg6QuTri9rHCoi5gHOesCZvC
+huUfkN4f3d/59nUi2Iy5tk66iTdSYkBLs1cLn12ZXUskJ7cHp4egAaBXhNtnxw9a
+wsP3wecT3oWkYyPHHl+N7q/1LudDKWHWzjUgsqDATK6XmW4W/It9vWYooDTYNCLG
+Q6/AtsUCgYEAzeJFAKlU6Xbu+YCWdQI934ZJA6fcbJ4DGYrNRjE5WrtAfOrI79o+
+muHI8gEvfDRR6FNa9Uhnm7CpWp0V5YFRs4juPiaDszmhp5HLzH2BAdQZ/WLPwgGb
+TTeHKBx3jOD/uaZnPLIBWCioQStHnQSw3qV1cSGSei7v45MHVVhIAYMCgYEAwcS1
+ogWnii7l7doSg9kJmNlSv3MAvCZEgINV95F54yEWp/EoVgrvHU/xhGrXZfMDJdFa
+iUejGoLcJcmqSErrvNNbH2KJTQDHVKvoWtT7omXv9Al4rz7eAaRP9J53fXHAsbLC
+uqQ2jqOh+llZTzmfhvDQR3OEikWOQZcBTdtHWYMCgYB59K+VLbkLtpTmnMIDO7m0
+/5Gepb+PY6ZIag0gqCXmVgdkN5uhYLE3A8oJeKRNOZzPNxkpNKOS+PnIoEaJNapU
+5CbkD+JxtxDH9zg2wJ07nQ1sKC0TKep5ugvIudwjSmCQ8z4yGOts8mCAggegvlea
++33u7skasVUOhFiSuIGmywKBgAl0jeBwIjLOAw5OO+UPLDa3NCB/fiOwQlt7DTDd
+enMo5DAhxnQcaHqnsgNiK0ygRSENTDuysTTT+eYmJxcMAODf92xapJSLWy64jMgR
+6I2OJ91isO7sRG0UFYq8SNxoNpz1OiddaAQh2/+ZaJBDIZO2IJO8AVW1+zEcK0Yf
+UyX9AoGBAMl1+PPEaVsjrOYTlvGOubpuuKT66gPtlUr8JvnkFyaOWFXwRgEHVXIm
+c4OFON25W/72HzPT3O4IafHEc4nk2COH1qY7kylPQ7D0QsZwxtQ/hDobbqu0Dz2/
+N2Erf6z+GMPLfrk9Y9tt20cOVRRKuIvWgHNfvtqmA4lnkPBsCZSI
+-----END RSA PRIVATE KEY-----
+
+
+Now we choose User id password or kyes 
+============================================
+
+We choose-------- keys
+
+Availability
+===================
+Select -- Keep this agent online as much as possible 
+
+
+Now in Slave 
+================
+
+Check java version
+=====================
+
+java -version
+
+which java ---- /usr/bin/java --COPY THIS
+
+
+NOW GO TO JENKINS NODE
+==============================
+
+Select advance
+================
+
+ 	JavaPath--- /usr/bin/java ------paste
+
+
+Now save
+=========
+
+Then node is created
+==========================
+
+THEN GO SLAVE--
+================
+ MAKE A NEW DIR
+=====================
+[root@ip-172-31-28-198 opt]# mkdir .jenkins
+
+
+
+Now go to Dashboard and Select New item
+==============================================
+
+Name ---SLAVE_JOB
+
+Select Free style project
+Click ok
+
+
+
+Select Build===
+===================
+
+go to Execute shell---
+                      mkdir /tmp/mydir
+                      touch /tmp/demo.txt
+                      echo "Jenkins Slave Node" > /tmp/demo.txt
+
+Then --select Restrict where this project can be run
+============================================================
+   Label Expression  --slave1
+
+
+Then save 
+==========
+Then build now
+---------------
+
+Then go to slave putty
+=========================
+
+[root@ip-172-31-28-198 opt]# ls -a
+
+[root@ip-172-31-28-198 opt]# cd .jenkins/
+[root@ip-172-31-28-198 .jenkins]# ls
+
+
+then be found--
+tesw file -- remoting  remoting.jar  tools  workspace
+
+
+Then Go TO
+---------------
+[root@ip-172-31-28-198 jenkins]# cd workspace/
+[root@ip-172-31-28-198 workspace]# ls
+'SLAVE _JOB' ---we found this
+
+
+
+We can build any Project like Ant Maven But we must have plugin in Slave and Master
+====================================================================================
+
+So how we can copy all package from Master to Slave
+=======================================================
+Now go to jenkins master--
+
+root@ip-172-31-39-46:/opt# ls
+
+ apache-ant-1.10.7               apache-tomcat-9.0.31.tar.gz
+ apache-ant-1.10.7-bin.tar.gz   'jdk-8u241-linux-x64.tar.gz?AuthParam=1585407560_d8babe0a571a73c7714fb6cd706ae703'
+ apache-maven-3.6.3              jdk1.8.0_241
+ apache-maven-3.6.3-bin.tar.gz   jenkins.war
+ apache-tomcat-9.0.31
+
+we have all these package now copy in slave
+===============================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
